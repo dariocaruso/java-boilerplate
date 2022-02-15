@@ -11,6 +11,7 @@ public class BoilerplateDTO extends Auditable {
     private Long id;
     private String name;
     private BigDecimal amount;
+    private boolean active;
 
     //Jackson
     public BoilerplateDTO() {
@@ -23,6 +24,7 @@ public class BoilerplateDTO extends Auditable {
         this.id = entity.getId();
         this.name = entity.getName();
         this.amount = entity.getAmount();
+        this.active = entity.isActive();
     }
 
     public Long getId() {
@@ -37,8 +39,12 @@ public class BoilerplateDTO extends Auditable {
         return amount;
     }
 
+    public boolean isActive() {
+        return active;
+    }
+
     public BoilerplateEntity toEntity() {
-        return new BoilerplateEntity(this.name, this.amount);
+        return new BoilerplateEntity(this.name, this.amount, this.active);
     }
 
     public static BoilerplateDTO fromEntity(BoilerplateEntity entity) {

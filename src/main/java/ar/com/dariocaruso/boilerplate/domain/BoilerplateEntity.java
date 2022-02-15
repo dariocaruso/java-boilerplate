@@ -17,13 +17,15 @@ public class BoilerplateEntity extends Auditable {
     private Long id;
     private String name;
     private BigDecimal amount;
+    private boolean active;
 
     protected BoilerplateEntity() {
     }
 
-    public BoilerplateEntity(String name, BigDecimal amount) {
+    public BoilerplateEntity(String name, BigDecimal amount, boolean active) {
         this.name = name;
         this.amount = amount;
+        this.active = active;
     }
 
     public Long getId() {
@@ -48,5 +50,9 @@ public class BoilerplateEntity extends Auditable {
 
     public void setAmount(BigDecimal amount) {
         this.amount = amount;
+    }
+
+    public boolean isActive() {
+        return active;
     }
 }

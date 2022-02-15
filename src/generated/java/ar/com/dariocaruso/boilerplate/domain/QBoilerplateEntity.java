@@ -1,15 +1,12 @@
 package ar.com.dariocaruso.boilerplate.domain;
 
-import com.querydsl.core.types.Path;
+import static com.querydsl.core.types.PathMetadataFactory.*;
+
+import com.querydsl.core.types.dsl.*;
+
 import com.querydsl.core.types.PathMetadata;
-import com.querydsl.core.types.dsl.BooleanPath;
-import com.querydsl.core.types.dsl.EntityPathBase;
-import com.querydsl.core.types.dsl.NumberPath;
-import com.querydsl.core.types.dsl.StringPath;
-
 import javax.annotation.Generated;
-
-import static com.querydsl.core.types.PathMetadataFactory.forVariable;
+import com.querydsl.core.types.Path;
 
 
 /**
@@ -22,11 +19,25 @@ public class QBoilerplateEntity extends EntityPathBase<BoilerplateEntity> {
 
     public static final QBoilerplateEntity boilerplateEntity = new QBoilerplateEntity("boilerplateEntity");
 
+    public final QAuditable _super = new QAuditable(this);
+
     public final BooleanPath active = createBoolean("active");
 
     public final NumberPath<java.math.BigDecimal> amount = createNumber("amount", java.math.BigDecimal.class);
 
+    //inherited
+    public final StringPath createBy = _super.createBy;
+
+    //inherited
+    public final DateTimePath<java.time.LocalDateTime> createdDateTime = _super.createdDateTime;
+
     public final NumberPath<Long> id = createNumber("id", Long.class);
+
+    //inherited
+    public final DateTimePath<java.time.LocalDateTime> lastModifiedDateTime = _super.lastModifiedDateTime;
+
+    //inherited
+    public final StringPath modifiedBy = _super.modifiedBy;
 
     public final StringPath name = createString("name");
 
